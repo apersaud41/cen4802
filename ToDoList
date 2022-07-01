@@ -1,0 +1,49 @@
+import java.util.*;
+import java.util.ArrayList;
+import java.util.Scanner;
+public class Main {
+        public static void main(String[] args) {
+                ToDoList todo=new ToDoList();
+                int flag=0; 
+                while(flag==0){
+                
+                System.out.print("~To-do list~ \n\n1. Add a to-do item\n2. Delete a to-do item\n3. View the to-do item\n4. Exit\n\n Please enter your numbered choice:\n");
+                Scanner input=new Scanner(System.in);
+                int option=input.nextInt(); input.nextLine();
+                if(option==1){
+                        System.out.println("Enter the item:");
+                        String item=input.nextLine();
+                        todo.addItem(item);
+                        System.out.println("1 item has been added!");
+        }
+        else if(option==2){
+                todo.listAll();
+                System.out.println("Enter the item number you would like to delete");
+                int n=input.nextInt();
+                todo.deleteItem(n-1);
+                System.out.println("1 item has been deleted!");
+                
+        }
+        else if(option==3){
+                todo.listAll();
+
+}else{flag=1;}}
+}
+}
+class ToDoList{
+ArrayList<String> todo = new ArrayList<String>();
+
+public  void addItem(String item){
+        this.todo.add(item);
+}
+
+public void deleteItem(int num){
+        this.todo.remove(num);
+}
+        
+public void listAll(){
+        for (int i = 0; i < this.todo.size(); i++) {
+      System.out.println((i+1)+"."+this.todo.get(i));
+    }
+        }
+}
